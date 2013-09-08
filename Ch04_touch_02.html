@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+  </head>
+  <body>
+
+    <style>
+        .circle {
+            position: relative;
+            margin: auto;
+            width: 3em;
+            height: 3em; 
+            border-radius: 50%;
+            margin: 10%;
+          }
+    
+        #one {
+          background-color: red;
+        }
+
+        #two {
+          background-color: green;
+        }
+
+        #three {
+          background-color: blue;
+        }
+
+        .p {
+          position: relative;
+          color: white;
+          margin-top: 4em;
+        }
+
+    </style>
+  
+    <div id="one" class="circle"><p></p></div>
+    <div id="two" class="circle"></div>
+    <div id="three" class="circle"></div>
+     <script src="zepto-touch.js"/></script>
+     <script>Zepto(function($){  
+
+       
+        $(".circle").on('singleTap',function () { $(this).css('background-color', 'black');});
+        $(".circle").on('doubleTap',function () { $(this).hide() ; });
+       })
+       
+       </script>
+         </body>
+    </html>
+    

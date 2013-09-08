@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+  </head>
+  <body>
+
+    <style>
+        ul {
+          width: 100%;
+          margin: 0 0 0 0;
+          padding: 0 0 0 0;
+        }
+
+        .list-element {
+          list-style: none;
+          margin-left: 0;
+          font-size: 2em;
+          font-family: Helvetica, Arial, sans-serif;
+          padding: 1em 0 1em 0;
+          border-bottom-style: solid;
+          border-color:#eeeeee;
+          border-bottom-width: 0.05em;
+
+        }
+
+        .delete-button {
+          position: relative;
+          background-color: red;
+          color: white;
+          height: 2em;
+          width: 6em;
+          font-size: 0.5em;
+          float: right;    
+          opacity: 0.0;
+          line-height: 2em;
+          border: none;
+        }
+
+    </style>
+
+   <div id="container">
+    <ul>
+      <li class="list-element">One</li>
+      <li class="list-element">Two</li>
+      <li class="list-element">Three</li>
+    </ul>
+  </div>
+
+
+    <script src="zepto-touch.js"/></script>
+     <script>Zepto(function($){  
+     
+      $(".list-element").on('swipe', swipe_to_delete);
+
+      $('ul').on('tap', remove_delete_button);
+
+      function swipe_to_delete() {
+        $(".delete-button").remove();
+        $(this).append("<button class='delete-button'>Delete</button>");
+        $('.delete-button').animate({'opacity': '1'});
+        $(".delete-button").on('tap', function(){
+          $(this).parent('li').remove();
+        });
+      }
+
+      function remove_delete_button() {
+        $('.delete-button').animate(
+          {'opacity': '0'}, 
+          { complete: function(){$(".delete-button").remove();}});   
+      }
+
+    });
+
+    </script>
+
+  </body>
+</html>

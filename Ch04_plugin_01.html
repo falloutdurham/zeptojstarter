@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+  </head>
+  <body>
+
+
+    <p>This is some text, which a link to <a href="http://www.packtpub.com/">PACKT</a>.</p>
+
+    <button id="helv_button">Click me for Helvetica!</button>
+
+
+    <script src="zepto-touch.js"/></script>
+    <script>
+    (function($){
+          $.extend($.fn, {
+            helveticaize: function( options ){
+              $.each(this, function(){
+                $(this).css({"font-family":"Helvetica", "font-size": options['size']+'px'});
+              });
+              return this;
+            }
+          })
+        })(Zepto || jQuery)
+
+
+
+    </script>
+  
+    <script>    
+      $("#helv_button").on('click',function(){
+        $("p > a").helveticaize({size: 40});
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<body>
+
+<style>
+.box {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    left: 0px;
+    position: absolute;
+}
+</style>
+
+
+
+    <div class="box"></div>    
+    <script src ="zepto-touch.js"></script>
+    <script>Zepto(function($){  
+
+
+        $(".box").animate({'left': '100%'},
+        { easing: 'ease-in',
+          duration: 1000,
+          complete: function(){ console.log("Finished!")}
+        })
+      });
+    
+    </script>
+    
+<body>
+</html>
